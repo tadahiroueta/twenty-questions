@@ -3,5 +3,7 @@ Barnyard?
 chicken
 owl
 Is it a mammal?
+Is it a canine?
+Dog
 tiger
 rattlesnake

@@ -23,13 +23,13 @@ public class GameTree
 
 	private boolean isAnswer(Node node) { 
 		String line = node.data;
-		return line.substring(line.length() - 1).equals("?"); 
+		return !line.substring(line.length() - 1).equals("?"); 
 	}
 
 	private Node tree(Scanner scanner) {
 		if (!scanner.hasNextLine()) return null;
 		Node node = new Node(scanner.nextLine().trim());
-		if (isAnswer(node)) {
+		if (!isAnswer(node)) {
 			node.left = tree(scanner);
 			node.right = tree(scanner);
 		}
@@ -115,7 +115,7 @@ public class GameTree
 		String output = toString(node.right, added);
 		
 		for (int i = 0; i < literalNumber; i++) output += "- ";
-		output += node.data + "%n";
+		output += node.data + "\n";
 
 		return output + toString(node.left, added);
 	} 
